@@ -1,0 +1,15 @@
+FROM mysql:latest
+
+MAINTAINER dimalenchuk
+
+ENV MYSQL_DB = db4
+ENV MYSQL_PASSWORD = pass4
+ENV MYSQL_ROOTPASSWORD = root4
+
+ADD lenchuk.sql .
+
+CMD mysql -p $MYSQL_ROOTPASSWORD
+
+EXPOSE 3306
+
+ENTRYPOINT tail -f /dev/null
