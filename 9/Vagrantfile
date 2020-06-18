@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/trusty64"
+    ubuntu.vm.network "forwarded_port", guest: 80, host: 8080
+    ubuntu.vm.provision "shell",
+    inline:
+    "apt install -y git
+     git clone https://github.com/dimalenchuk/bilet8test
+     cd bilet8test
+     touch ekzamen.yaml
+     ls -a"
+  end
+
+  config.vm.define "centos" do |centos|
+    centos.vm.box = "centos/6"
+    centos.vm.provision "shell",
+    inline:
+    "cd /vagrant
+     ./lenchuk.sh"
+  end
+end
+

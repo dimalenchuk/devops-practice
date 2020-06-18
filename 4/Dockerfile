@@ -11,5 +11,3 @@ ADD lenchuk.sql .
 CMD mysql -p $MYSQL_ROOTPASSWORD
 
 EXPOSE 3306
-
-ENTRYPOINT tail -f /dev/null
